@@ -16,7 +16,7 @@ service / on new http:Listener(8090) {
         return "Hello, World!";
     }
 
-    resource function get hello() returns string {
-        return "Hello, World!";
-    }
+    // resource function get hello() returns string {
+    //     return "Hello, World!";
+    // }
 }
