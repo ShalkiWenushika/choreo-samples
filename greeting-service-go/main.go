@@ -24,6 +24,7 @@
 	 "fmt"
 	 "io"
 	 "log"
+	 "net"
 	 "net/http"
 	 "os"
 	 "os/signal"
@@ -102,6 +103,10 @@
 	 client := &http.Client{
 		 Transport: &http.Transport{
 			 IdleConnTimeout:     10 * time.Minute,
+			 DialContext: (&net.Dialer{
+				KeepAlive: 1 * time.Minute,  // Keep-alive packets sent every 1 minute
+				Timeout:   15 * time.Second, // Set connection timeout to 15 seconds
+			}).DialContext,
 			 DisableKeepAlives:   false,
 		 },
 	 }
