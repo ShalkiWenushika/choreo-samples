@@ -102,6 +102,10 @@
 	 client := &http.Client{
 		 Transport: &http.Transport{
 			 IdleConnTimeout:     5 * time.Minute,
+			 DialContext: (&net.Dialer{
+				KeepAlive: 5 * time.Minute, 
+				Timeout:   1 * time.Minute,
+			}).DialContext,
 			 DisableKeepAlives:   false,
 		 },
 	 }
