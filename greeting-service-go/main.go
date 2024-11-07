@@ -24,7 +24,6 @@
 	 "fmt"
 	 "io"
 	 "log"
-	 "net"
 	 "net/http"
 	 "os"
 	 "os/signal"
