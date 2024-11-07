@@ -102,11 +102,7 @@
 	 // Create an HTTP client with custom transport using the TLS config.
 	 client := &http.Client{
 		 Transport: &http.Transport{
-			 IdleConnTimeout:     5 * time.Minute,
-			 DialContext: (&net.Dialer{
-				KeepAlive: 5 * time.Minute, 
-				Timeout:   1 * time.Minute,
-			}).DialContext,
+			 IdleConnTimeout:     10 * time.Minute,
 			 DisableKeepAlives:   false,
 		 },
 	 }
